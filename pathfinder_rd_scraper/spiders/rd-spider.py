@@ -1,6 +1,7 @@
 from typing import List
 
 import scrapy
+from scrapy.http.response.html import HtmlResponse
 
 from pathfinder_rd_scraper.helpers.navigation import MainMenuExtractor, MenuEntry
 
@@ -16,9 +17,9 @@ class PathfinderRdSpider(scrapy.Spider):
         """To be described."""
         scrapy.Request(url=self.initial_url, callback=self._parse_maine_menu_for_urls)
 
-    def _parse_maine_menu_for_urls(self, request: scrapy.Request) -> None:
+    def _parse_maine_menu_for_urls(self, response: HtmlResponse) -> None:
         """To be described."""
-        self.main_menu_urls.extend(MainMenuExtractor(request=request).retrieve_menu_links())
+        self.main_menu_urls.extend(MainMenuExtractor(response=response).retrieve_menu_links())
 
     def start_requests(self):
         """To be described."""
