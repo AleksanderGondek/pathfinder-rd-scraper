@@ -4,6 +4,7 @@ import scrapy
 from scrapy.http.response.html import HtmlResponse
 
 from pathfinder_rd_scraper.helpers.navigation import MainMenuExtractor, MenuEntry
+from pathfinder_rd_scraper.helpers.css_files import CssExtractor, CssFile
 
 
 class PathfinderRdSpider(scrapy.Spider):
